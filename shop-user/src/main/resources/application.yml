@@ -1,6 +1,12 @@
 server:
   port: 8071
 spring:
+  zipkin:
+    base-url: http://127.0.0.1:9411/ #zipkin server的请求地址
+    discoveryClientEnabled: false #让nacos把他当做一个URL，而不是服务名
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比
   application:
     name: service-user
   datasource:
@@ -18,3 +24,6 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+
+
+
